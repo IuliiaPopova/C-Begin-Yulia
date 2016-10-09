@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,30 +11,18 @@ namespace ClassYulia
     {
         static void Main(string[] args)
         {
-            Doctor doctor1 = new Doctor();
-            doctor1.surname = "Ivanov";
-            doctor1.name = "Petr";
-            doctor1.middleName = "Alexeevich";
-            doctor1.profession = "terapevt";
-            doctor1.cabinetNumber = 15;
-            doctor1.patientNumber = 0;
-             
-            Doctor doctor2 = new Doctor();
-            doctor2.surname = "Limonov";
-            doctor2.name = "Viktor";
-            doctor2.middleName = "Sergeevich";
-            doctor2.profession = "oftolmolog";
-            doctor2.cabinetNumber = 7;
-            doctor2.patientNumber = 0;
-
-            doctor1.PrintBio();
-            doctor1.GoToWork();
-            doctor1.GoToWork();
+            
+      // Use constructor default
+         Doctor doctor1 = new Doctor();  
             doctor1.PrintBio();
 
+      // Use special constructor and give value BIO
+      Doctor doctor2 = new Doctor("Petrov", "Sergey","Victorovich");
             doctor2.PrintBio();
-            doctor2.GoToWork();
-            doctor2.PrintBio();
+
+      //Give info about quality patients
+      Doctor doctor3 = new Doctor(5000);
+      doctor3.PrintBio();
         }
     }
 }
