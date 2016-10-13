@@ -9,49 +9,75 @@ namespace ClassYulia
 {
     class Doctor
     {
-        public string surname;
-        public string name;
-        public string middleName;
+        public string Surname { get; set;}
+        public string Name { get; set; }
+        public string MiddleName { get; set; }
 
-        public string profession;
-        public int cabinetNumber;
-        public int patientNumber;
-        public int salary;
+        public string Profession;
+        public int CabinetNumber;
+
+        public int cabinetNumber
+        {
+            get { return CabinetNumber;}
+            set
+            {//in clinical cabinet 100
+                if (value > 100)
+                    value = 100;
+                CabinetNumber = value;
+            }
+        }
+        public int PatientNumber { get; set; }
+
+        public static int Salary { get; set; }
+       
+        
+        // static constructor
+        static Doctor()
+        {
+            Salary = 20000;
+        }
 
         //Constructor of Class (default)
         public Doctor()
         {
-            salary = 10000;
+            
         }
         
         //Constructor with 3 parameters
         public Doctor(string surname, string name, string middlename)
         {
-            this.surname = surname;
-            this.name = name;
-            this.middleName = middlename;
-            salary = 10000;
+            Surname = surname;
+            Name = name;
+            MiddleName = middlename;
+            
         }
 
         // Constructor with one parameter - quality disinfection patients
         public Doctor(int patientNumberParameter)
         {
-            patientNumber = patientNumberParameter;
-            surname = "A";
-            name = "B";
-            middleName = "C";
-            salary = 10000;
+            PatientNumber = patientNumberParameter;
+            Surname = "A";
+            Name = "B";
+            MiddleName = "C";
+            CabinetNumber = 3;
+
         }
 
         public void PrintBio()
         {
-            Console.WriteLine("Doctor {0} {1} {2} has profession \"{3}\", make appoitment in the cabinet number {4}. He has {5} patients.He  sent salary {6}\n", surname, name, middleName, profession, cabinetNumber, patientNumber, salary);
+            Console.WriteLine("Doctor {0} {1} {2} has profession \"{3}\", make appoitment in the cabinet number {4}. He has {5} patients.He  sent salary {6}\n", Surname, Name, MiddleName, Profession, CabinetNumber, PatientNumber, Salary);
         }
 
         public void GoToWork()
         {
-            Console.WriteLine("Doctor {0} {1} {2} goes to work ... ", surname, name, middleName);
-            patientNumber = patientNumber + 5;
+            Console.WriteLine("Doctor {0} {1} {2} goes to work ... ", Surname, Name, MiddleName);
+            PatientNumber = PatientNumber + 5;
+        }
+
+        //static method. Displays info about Class on the Console
+        public static void PrintClassInfo()
+        {
+            Console.WriteLine("Class Doctor intoduces busness idea in Programm \"Doctor\". One static constructor  defind in the Class,.....");
         }
     }
 }

@@ -11,18 +11,8 @@ namespace ClassYulia
     {
         static void Main(string[] args)
         {
-            
-      // Use constructor default
-         Doctor doctor1 = new Doctor();  
-            doctor1.PrintBio();
+        Console.WriteLine("Send your review and wishes on this email: {0}", Service.techSupportEmail);
 
-      // Use special constructor and give value BIO
-      Doctor doctor2 = new Doctor("Petrov", "Sergey","Victorovich");
-            doctor2.PrintBio();
-
-      //Give info about quality patients
-      Doctor doctor3 = new Doctor(5000);
-      doctor3.PrintBio();
         }
     }
 }
